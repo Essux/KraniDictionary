@@ -3,7 +3,8 @@ package kranidictionary.autocompletado;
 import java.util.ArrayList;
 
 /**
- *
+ * Esta clase crea un Trie donde cada nodo representa diferentes caracteres de palabras.
+ * La implementación está hecha con HashMaps
  * @author JuanJose
  */
 public class Trie {

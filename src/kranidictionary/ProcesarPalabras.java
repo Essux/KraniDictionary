@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package kranidictionary;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
- *
+ * Esta clase define el esqueleto del comportamiento de las clases que realizan consultas de palabras
  * @author JuanJose
  */
 public abstract class ProcesarPalabras {
