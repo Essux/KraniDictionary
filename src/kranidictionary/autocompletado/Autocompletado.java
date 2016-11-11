@@ -16,7 +16,7 @@ public class Autocompletado extends ProcesarPalabras{
     
     /**
      * Lee las palabras del archivo de texto y crea un trie que las contenga
-     * @throws FileNotFoundException - Si el archivo de texto no es encontrado
+     * @throws FileNotFoundException Si el archivo de texto no es encontrado
      */
     @Override
     public void generarDiccionario() throws FileNotFoundException{

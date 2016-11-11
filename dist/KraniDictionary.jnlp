@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="KraniDictionary.jar" size="1046789" download="eager" />
+    <jar href="KraniDictionary.jar" size="1047250" download="eager" />
     <jar href="lib\commons-codec-1.10.jar" size="284184" download="eager" />
     <jar href="lib\jfoenix.jar" size="2155008" download="eager" />
   </resources>

@@ -11,6 +11,11 @@ public class TrieNode {
     private final boolean word;
     private final char letter;
     
+    /**
+     * Inicializa una instancia de la clase especificando el caracter que contiene y si representa una palabra
+     * @param letter
+     * @param word
+     */
     public TrieNode (char letter, boolean word){
         this.letter = letter;
         this.word = word;
@@ -18,6 +23,7 @@ public class TrieNode {
     }
 
     /**
+     * Devuelve el HashMap asociado con los hijos del nodo
      * @return the sons
      */
     public HashMap<Character, TrieNode> getSons() {
@@ -25,6 +31,7 @@ public class TrieNode {
     }
 
     /**
+     * Retorna el caracter que representa el nodo
      * @return the letter
      */
     public char getLetter() {
@@ -32,6 +39,7 @@ public class TrieNode {
     }
 
     /**
+     * Retorna si el nodo representa una palabra
      * @return the word
      */
     public boolean isWord() {
