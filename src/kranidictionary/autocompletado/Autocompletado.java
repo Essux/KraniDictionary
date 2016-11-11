@@ -14,6 +14,10 @@ import kranidictionary.ProcesarPalabras;
 public class Autocompletado extends ProcesarPalabras{
     private Trie trie;
     
+    /**
+     * Lee las palabras del archivo de texto y crea un trie que las contenga
+     * @throws FileNotFoundException - Si el archivo de texto no es encontrado
+     */
     @Override
     public void generarDiccionario() throws FileNotFoundException{
         BufferedReader br = new BufferedReader(new FileReader("src/kranidictionary/words.txt"));
@@ -27,6 +31,11 @@ public class Autocompletado extends ProcesarPalabras{
         catch(IOException e){}
     }
 
+    /**
+     * Recibe una palabra y devuelve todas las palabras que la tengan como prefijo
+     * @param palabra
+     * @return palabras que comiencen por el parámetro
+     */
     @Override
     public ArrayList<String> consulta(String palabra) {
         try{
