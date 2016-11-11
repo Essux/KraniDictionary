@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import kranidictionary.ProcesarPalabras;
 
 /**
- *
+ * Esta clase se encarga de devolver palabras que empiecen con una cadena de caracteres a partir de un diccionario dado.
  * @author JuanJose
  */
 public class Autocompletado extends ProcesarPalabras{

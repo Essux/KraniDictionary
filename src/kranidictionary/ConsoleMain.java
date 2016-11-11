@@ -12,7 +12,7 @@ import kranidictionary.autocompletado.Autocompletado;
 
 /**
  *
- * @author USUARIO
+ * @author JuanJose
  */
 public class ConsoleMain {
     public static void main(String[] args){

@@ -10,7 +10,7 @@ import kranidictionary.ProcesarPalabras;
 import org.apache.commons.codec.language.DoubleMetaphone;
 
 /**
- * @version Alpha 0.0.1
+ *
  * @author sbusta16, jsuare32
  */
 public class BuscadorFonetico extends ProcesarPalabras{
