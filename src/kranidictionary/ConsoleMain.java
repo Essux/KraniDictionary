@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package kranidictionary;
 
 import kranidictionary.fonetico.BuscadorFonetico;
@@ -11,10 +6,15 @@ import java.util.Scanner;
 import kranidictionary.autocompletado.Autocompletado;
 
 /**
- *
- * @author USUARIO
+ * Esta clase permite hacer consultas fonéticas y de autocompletado desde la terminal.
+ * @author JuanJose
  */
 public class ConsoleMain {
+
+    /**
+     * Inicializa el programa con interacción desde la terminal.
+     * @param args
+     */
     public static void main(String[] args){
         BuscadorFonetico fonetico = new BuscadorFonetico();
         Autocompletado auto = new Autocompletado();

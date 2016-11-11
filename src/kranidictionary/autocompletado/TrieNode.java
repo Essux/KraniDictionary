@@ -3,7 +3,7 @@ package kranidictionary.autocompletado;
 import java.util.HashMap;
 
 /**
- *
+ * Esta clase es cada uno de los nodos que componen un Trie
  * @author JuanJose
  */
 public class TrieNode {

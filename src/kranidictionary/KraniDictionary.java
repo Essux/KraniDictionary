@@ -30,7 +30,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 /**
- *
+ * Esta clase permite hacer consultas fonéticas y de autocompletado a través de una interfaz gráfica.
  * @author JuanJose
  */
 public class KraniDictionary extends Application {
@@ -123,6 +123,7 @@ public class KraniDictionary extends Application {
     }
     
     /**
+     * Inicializa el programa con interfaz gráfica
      * @param args the command line arguments
      */
     public static void main(String[] args) {

@@ -10,13 +10,17 @@ import kranidictionary.ProcesarPalabras;
 import org.apache.commons.codec.language.DoubleMetaphone;
 
 /**
- * @version Alpha 0.0.1
+ * Esta clase permite hacer consultas de palabras similares fonéticamente según un diccionario dado
  * @author sbusta16, jsuare32
  */
 public class BuscadorFonetico extends ProcesarPalabras{
     private HashMap<String, ArrayList> map;
     private DoubleMetaphone dm;
     
+    /**
+     * Carga todas las palabras en un diccionario desde un archivo de texto.
+     * @throws FileNotFoundException Es arrojada cuando el archivo de texto no es encontrado
+     */
     @Override
     public void generarDiccionario() throws FileNotFoundException{
         BufferedReader br = new BufferedReader(new FileReader("src/kranidictionary/words.txt"));
@@ -35,6 +39,11 @@ public class BuscadorFonetico extends ProcesarPalabras{
         catch(IOException e){}
     }
     
+    /**
+     * Devuelve palabras similares fonéticamente al parámetro palabra
+     * @param palabra La palabra de la cual se quiere hacer la consulta
+     * @return Un ArrayList de cadenas de caracteres que contiene todas las palabras similares encontradas
+     */
     @Override
     public ArrayList<String> consulta(String palabra){
         return map.get(dm.encode(palabra));
