@@ -12,10 +12,12 @@ import static javafx.application.Application.launch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -28,6 +30,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import kranidictionary.autocompletado.Autocompletado;
 
 /**
  * Esta clase permite hacer consultas fonéticas y de autocompletado a través de una interfaz gráfica.
@@ -36,6 +39,8 @@ import javafx.stage.StageStyle;
 public class KraniDictionary extends Application {
     private ObservableList words;
     private final BuscadorFonetico fonetico = new BuscadorFonetico();
+    private final Autocompletado auto = new Autocompletado();
+    private ProcesarPalabras option = fonetico;
     private JFXTextField textField;
     private JFXListView<Label> wordList;
     
@@ -44,6 +49,7 @@ public class KraniDictionary extends Application {
         //Load dictionary
         try{
             fonetico.generarDiccionario();
+            auto.generarDiccionario();
         }catch(FileNotFoundException e){
             System.out.println("Archivo de palabras no encontrado");
         }
@@ -70,7 +76,7 @@ public class KraniDictionary extends Application {
         goButton.setPrefWidth(40);
         goButton.setBackground(new Background(new BackgroundFill(mainColor, new CornerRadii(3), Insets.EMPTY)));
         HBox upperPane = new HBox();
-        upperPane.setPadding(new Insets(5, 10, 5, 10));
+        upperPane.setPadding(new Insets(10, 10, 0, 20));
         upperPane.setSpacing(10);
         upperPane.getChildren().addAll(textField, optionsList, goButton);
         
@@ -87,7 +93,7 @@ public class KraniDictionary extends Application {
         root.setCenter(mainPanel);
         
         //Set scene
-        Scene scene = new Scene(root, 400, 400);
+        Scene scene = new Scene(root, 400, 410);
         
         //Event handling
         goButton.setOnAction((ActionEvent e) -> {
@@ -99,6 +105,14 @@ public class KraniDictionary extends Application {
         goButton.setOnMouseExited((MouseEvent me) ->{
             scene.setCursor(Cursor.DEFAULT);
         });
+        optionsList.setOnAction((EventHandler) e ->{
+            if(optionsList.getValue() == predOption){
+                option = fonetico;
+            }
+            else{
+                option = auto;
+            }
+        });
         textField.setOnKeyPressed((KeyEvent ke) -> {
             if (ke.getCode().equals(KeyCode.ENTER)){
                 showResults();
@@ -106,7 +120,7 @@ public class KraniDictionary extends Application {
         });
         
         //Set stage
-        primaryStage.setTitle("Práctica Datos");
+        primaryStage.setTitle("KraniDictionary");
         primaryStage.initStyle(StageStyle.DECORATED);
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
@@ -114,7 +128,7 @@ public class KraniDictionary extends Application {
     }
     
     private void showResults(){
-        ArrayList<String> list = fonetico.consulta(textField.getText());
+        ArrayList<String> list = option.consulta(textField.getText());
         try{
             words = FXCollections.observableArrayList(list);
         }

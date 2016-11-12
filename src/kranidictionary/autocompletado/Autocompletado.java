@@ -39,10 +39,10 @@ public class Autocompletado extends ProcesarPalabras{
     @Override
     public ArrayList<String> consulta(String palabra) {
         try{
-        ArrayList<String> list = trie.dfs(trie.findNode(palabra), 
-                palabra.substring(0, palabra.length()-1),
-                new ArrayList<>());
-        return list;
+            ArrayList<String> list = trie.dfs(trie.findNode(palabra), 
+                    palabra.substring(0, palabra.length()-1),
+                    new ArrayList<>());
+            return list;
         } catch(NullPointerException e){
             return new ArrayList<>();
         }
